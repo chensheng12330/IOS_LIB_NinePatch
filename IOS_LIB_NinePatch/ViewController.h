@@ -8,8 +8,17 @@
 
 #import <UIKit/UIKit.h>
 #import "TUNinePatch.h"
+#import "NIDropDown.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<NIDropDownDelegate>
+{
+    NIDropDown *cateDropDown;
+    
+    NSMutableArray       *_arFilePathList;
+}
+
+@property (nonatomic, retain) NSString *selectImageName;
+
 
 @property (retain, nonatomic) IBOutlet UIImageView *myImageView;
 
@@ -18,4 +27,17 @@
 @property (retain, nonatomic) IBOutlet UIImageView *left;
 @property (retain, nonatomic) IBOutlet UIImageView *right;
 
+@property (retain, nonatomic) IBOutlet UISegmentedControl *segment;
+@property (retain, nonatomic) IBOutlet UISlider *slider;
+
+@property (retain, nonatomic) IBOutlet UILabel *lbWidth;
+@property (retain, nonatomic) IBOutlet UILabel *lbHeight;
+@property (retain, nonatomic) IBOutlet UILabel *lbImageInfo;
+
+- (IBAction)showFileList:(id)sender;
+
+- (IBAction)valueChange:(UISegmentedControl *)sender;
+
+- (IBAction)shuSlider:(UISlider*)sender;
+- (IBAction)sliderValueChange:(UISlider *)sender;
 @end
